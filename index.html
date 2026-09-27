@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>The Winning Roulette</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>The Winning Roulette</h1>
+  <div class="container">
+    <section class="options-panel">
+      <label for="options">Options (one per line):</label>
+      <textarea id="options" placeholder="Option1, Option2..." rows="10"></textarea>
+    </section>
+    <section class="wheel-panel">
+      <div id="wheel"></div>
+      <button id="spinBtn">Spin it!</button>
+      <div id="result" aria-live="polite"></div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

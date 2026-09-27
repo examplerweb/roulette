@@ -1,0 +1,188 @@
+/* Neon styled app */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(135deg, #4b0082, #800080);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  overflow: hidden;
+}
+
+h1 {
+  margin-top: 1rem;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+}
+
+.container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 1rem;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.options-panel, .wheel-panel {
+  flex: 1;
+}
+
+/* Textarea */
+#options {
+  width: 100%;
+  max-width: 250px;
+  height: 200px;
+  background: #222;
+  color: #0ff;
+  border: 2px solid #ff0;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 1rem;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 0 5px #0ff;
+}
+#options:focus { box-shadow: 0 0 10px #0ff; }
+
+/* Label styling */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ff0;
+  font-weight: bold;
+}
+
+
+/* Wheel */
+@media (min-width: 601px) {
+  .options-panel { margin-right: 2rem; }
+}
+#wheel {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 8px solid #ff0;
+  box-shadow: 0 0 10px #ff0, 0 0 20px #ff0;
+  position: relative;
+  background: conic-gradient(#0ff 0deg 60deg, #f0f 60deg 120deg, #ff0 120deg 180deg, #0ff 180deg 240deg, #f0f 240deg 300deg, #ff0 300deg 360deg);
+  transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.segment-label {
+  color: #000;
+  font-weight: bold;
+  text-shadow: 0 0 2px #fff;
+  pointer-events: none;
+}
+
+/* Winning label animation */
+.segment-label.winner {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+  color: #000;
+  font-weight: bold;
+  text-shadow: 0 0 2px #fff;
+  pointer-events: none;
+}
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid #fff;
+  filter: drop-shadow(0 0 5px #fff);
+}
+
+#spinBtn {
+  margin-top: 1rem;
+  padding: 1.2rem 2rem;
+  font-size: 1.5rem;
+  background: linear-gradient(45deg, #0ff, #f0f);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  text-shadow: 0 0 5px #0ff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+#spinBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #f0f, 0 0 30px #f0f;
+}
+#spinBtn:active {transform: scale(0.98);}
+
+
+#result {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s, transform 0.5s;
+  color: #ff0;
+}
+#result.show { opacity: 1; transform: scale(1); }
+
+@media (max-width: 600px) {
+  .container { flex-direction: column; align-items: center; }
+  .options-panel, .wheel-panel { width: 100%; }
+}
+
+
+/* Estilo mejorado para el botón de girar */
+#spinBtn { /* Reemplaza #spin-button por la ID o clase de tu botón */
+  margin-top: 80px !important;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  
+  padding: 16px 36px;
+  border: none;
+  border-radius: 50px; /* Bordes totalmente redondeados */
+  
+  color: #ffffff;
+  background: linear-gradient(135deg, #d941ff, #00d9fa); /* Degradado moderno */
+  box-shadow: 0 8px 20px rgba(255, 65, 108, 0.4);
+  
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  outline: none;
+}
+
+/* Efecto al pasar el cursor */
+#spinBtn:hover {
+  transform: translateY(-3px) scale(1.05); /* Ligeramente más grande y elevado */
+  box-shadow: 0 12px 25px rgba(255, 65, 108, 0.6);
+  background: linear-gradient(135deg, #00c3ff, #ef41ff);
+}
+
+/* Efecto al presionar el botón */
+#spinBtn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 10px rgba(255, 65, 108, 0.4);
+}
+
+/* Estado deshabilitado mientras la ruleta gira */
+#spinBtn:disabled {
+  background: #ccc;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
