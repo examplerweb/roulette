@@ -5,7 +5,7 @@ const spinSound = new Audio('drum-roll.wav');
 const winSound = new Audio('winner-sound.wav');
 
 // Ajustar el volumen (de 0.0 a 1.0)
-spinSound.volume = 0.7;
+spinSound.volume = 0.6;
 winSound.volume = 0.8;
 
 // Función auxiliar para reproducir audio de forma segura sin bloquear la animación
